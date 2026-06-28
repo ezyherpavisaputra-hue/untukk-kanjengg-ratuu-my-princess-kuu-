@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu ❤️</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4757;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #747d8c;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="card">
+        <h1 id="headline">Hai Kamu... ✨</h1>
+        <p id="message">Aku mau jujur... Aku suka banget sama kamu. Kamu mau gak jadi pacar aku? 🥺</p>
+        
+        <div class="buttons" id="btnContainer">
+            <button id="yesBtn" onclick="terima()">Mau! ❤️</button>
+            <button id="noBtn" onmouseover="pindah()" onclick="pindah()">Enggak</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi membuat tombol "Enggak" menghindar saat didekati/diklik
+        function pindah() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.getElementById('btnContainer');
+            
+            // Menghitung batas aman agar tombol tidak keluar dari area kontainer tombol
+            const maxWidth = container.clientWidth - noBtn.clientWidth;
+            const maxHeight = 100; // Jarak vertikal acak
+
+            const acakX = Math.floor(Math.random() * maxWidth);
+            const acakY = Math.floor(Math.random() * (max-height - (-maxHeight) + 1)) + (-maxHeight);
+
+            noBtn.style.left = acakX + 'px';
+            noBtn.style.top = acakY + 'px';
+        }
+
+        // Fungsi saat tombol "Mau!" diklik
+        function terima() {
+            document.getElementById('headline').innerText = "Yaaayyy! 🥰🎉";
+            document.getElementById('message').innerText = "Makasih udah mau nerima aku! Kabarin aku di WhatsApp sekarang yaaa! I love you! ❤️";
+            document.getElementById('btnContainer').style.display = 'none';
+            
+            // Efek tambahan konfeti mini (bisa dikembangkan)
+            document.getElementById('card').style.backgroundColor = '#fff0f6';
+        }
+    </script>
+</body>
+</html>
